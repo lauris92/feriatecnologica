@@ -2,5 +2,3 @@
   command = "npm run build --prod"
   publish = "dist/laura-feria/browser"
 
-[[plugins]]
-  package = "@netlify/plugin-angular"
