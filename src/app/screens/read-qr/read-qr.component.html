@@ -1,0 +1,49 @@
+
+<div class="btn-action" (click)="openDialog()">
+    <img src="../../../assets/icons/qr/qr.png" alt="">
+</div>
+
+
+<article class="header-sign animate__animated" [ngClass]="{'animate__fadeIn': !transition, 'animate__fadeOutUp': transition}">
+    <p>
+        Confirmar Asistencia
+    </p>
+</article>
+
+<article class="readQr animate__animated" [ngClass]="{'animate__fadeIn': !transition, 'animate__fadeOutUp': transition}">
+    <!-- <zxing-scanner 
+        [start]="true" 
+        (scanSuccess)="handleQrCodeResult($event)">
+    </zxing-scanner>  -->
+
+    <p class="label-qr">
+        Acerquese a cada stand y escanee el código QR para ir verificando su asistencia a cada uno de estos proveedores.
+    </p>
+</article>
+
+<article class="owners animate__animated" [ngClass]="{'animate__fadeIn': !transition, 'animate__fadeOutUp': transition}">
+    <div 
+        class="card-owner animate__animated" 
+        *ngFor="let item of owners" 
+        [ngClass]="{'animate__pulse border-green': isOwnerMarked(item.codeQR) }">
+        <img src="{{item.urlImg}}" alt="">
+
+        <!-- <div>
+            <h1>{{item.nombre}}</h1>
+            <p>{{item.descripcion}}</p>
+        </div> -->
+    </div>
+</article>
+
+<!-- @if (asist && asist2) { -->
+    <button class="btn-access animate__animated animate__fadeIn" [ngClass]="{'animate__fadeIn': !transition, 'animate__fadeOutUp': transition}" (click)="sendAssistence()">
+        Enviar Asistencia
+    </button>
+<!-- }  -->
+
+<span class="sign-out" [ngClass]="{'animate__fadeIn': !transition, 'animate__fadeOutUp': transition}" (click)="goToLink('/home')">
+    Volver al inicio
+</span>
+
+
+

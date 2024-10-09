@@ -1,0 +1,122 @@
+@use "styles/utils" as theme;
+
+.btn-action{
+    position: fixed;
+    width: 3rem;
+    height: 3rem;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(212,237,252,1) 100%);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 2rem;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+
+    img{
+        width: 100%;
+    }
+}
+
+
+.header-sign{
+    position: relative;
+    border-color: transparent transparent theme.$BBVA-Core-Light-Blue;
+    border-width: 2px 2px 2px;
+    border-style: solid solid solid;
+
+    p{
+        color: theme.$BBVA-Core-Light-Blue;
+        font-family: theme.$benton-book;
+        font-size: theme.$typographyTypeLarge;
+        text-align: center;
+    }
+}
+
+.readQr{
+    margin: 2rem;
+    border-radius: 10px; 
+    
+    zxing-scanner {
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        max-width: 500px;
+    }
+
+    .label-qr{
+        color: theme.$BBVA-600;
+        font-family: theme.$benton-book;
+        font-size: theme.$typographyTypeLarge;
+        text-align: center;
+    }
+}
+
+.owners{
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    .card-owner{
+        width: 80%;
+        height: 4.5rem;
+        margin: 1rem;
+        padding: 1rem .5rem;
+        display: flex;
+        justify-content: center;
+        border-radius: 7px;
+        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+        transition: all .2s ease-in-out;
+
+        img{
+            width: 80%;
+        }
+
+        h1{
+            margin: .75rem 0 ;
+            font-size: theme.$typographyType3XLarge;
+            font-family: theme.$benton-medium;
+        }
+
+        p{
+            margin: 0 0 1.5rem;
+            text-align: justify;
+            font-size: theme.$typographyTypeSmall;
+            font-family: theme.$benton-book;
+        }
+        
+    }
+
+ul{
+    position: relative;
+
+    li{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2rem;
+        list-style: none;
+        
+        img{
+            display: block;
+            width: 35%;
+        }
+    }
+}
+}
+
+.sign-out{
+    display: block;
+    margin: 3rem auto;
+    font-family: theme.$benton-book;
+    font-size: theme.$typographyTypeSmall;
+    text-align: center;
+    color: theme.$BBVA-Core-Light-Blue;
+    text-decoration: underline;
+}
+
+.border-green{
+    border: 5px solid #00f936;
+}

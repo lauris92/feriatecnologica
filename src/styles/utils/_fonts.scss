@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+
+/* Fonts family */
+@font-face {
+    font-family: benton-bold;
+    src: url(./../../assets/fonts/BentonSansBBVA-Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: benton-book;
+    src: url(./../../assets/fonts/BentonSansBBVA-Book.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: benton-book-italic;
+    src: url(./../../assets/fonts/BentonSansBBVA-BookItalic.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: benton-light;
+    src: url(./../../assets/fonts/BentonSansBBVA-Light.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: benton-medium;
+    src: url(./../../assets/fonts/BentonSansBBVA-Medium.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: benton-medium-italic;
+    src: url(./../../assets/fonts/BentonSansBBVA-MediumItalic.ttf) format("truetype");
+}
+
+/* Font family variable css */
+$benton-bold: benton-bold;
+$benton-book: benton-book;
+$benton-book-italic: benton-book-italic;
+$benton-light: benton-light;
+$benton-medium: benton-medium;
+$benton-medium-italic: benton-medium-italic;
+
+/* Fonts Size */
+$typographyType5XLarge: 3rem;
+$typographyType5XLarge: 2.5rem;
+$typographyType4XLarge: 2rem;
+$typographyType3XLarge: 1.5rem;
+$typographyType2XLarge: 1.375rem;
+$typographyTypeXLarge: 1.25rem;
+$typographyTypeLarge: 1.125rem;
+$typographyTypeMedium: 1rem;
+$typographyTypeSmall: 0.9375rem;

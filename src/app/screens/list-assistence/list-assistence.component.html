@@ -1,0 +1,34 @@
+<article
+  class="header-sign animate__animated"
+  [ngClass]="{ animate__fadeIn: !transition, animate__fadeOutUp: transition }"
+>
+  <p>Asistencia de Empleados</p>
+</article>
+
+<section class="lista-empleados">
+  <article class="list">
+    @for (item of employes; track $index) {
+    <li>
+      <img src="../../../assets/icons/activities/point/point.png" alt="point" />
+      {{ item.codigoEmpleado }}
+    </li>
+    }
+  </article>
+
+  <canvas id="canvas"></canvas>
+
+  <p class="assistence">
+    {{ employes?.length }} Empleados confirmaron su asistencia
+  </p>
+
+  <div class="covered-text" id="button">
+    {{ covered }}
+  </div>
+
+  <button
+    class="btn-access animate__animated animate__fadeIn"
+    (click)="start()"
+  >
+    Empezar Sorteo
+  </button>
+</section>

@@ -1,0 +1,54 @@
+<article
+  class="header-sign animate__animated"
+  [ngClass]="{ animate__fadeIn: !transition, animate__fadeOutUp: transition }"
+>
+  <p>Acceso empleados</p>
+
+  <img
+    src="../../../assets/icons/close/close.png"
+    alt=""
+    (click)="goToLink('/home')"
+  />
+</article>
+
+<section
+  class="form-empleados animate__animated"
+  [ngClass]="{ animate__fadeIn: !transition, animate__fadeOut: transition }"
+>
+  <div>
+    <p class="label">
+      Ingresa tu código de empleado para registrar la asistencia a los stands
+      con cada proveedor tecnológico
+    </p>
+
+    <article class="inputs">
+      <div class="box">
+        <select id="code" [(ngModel)]="code">
+          <option value="VP">VP</option>
+          <option value="XVE">XVE</option>
+        </select>
+      </div>
+      <input
+        type="number"
+        name="vpnumber"
+        id="vpnumber"
+        [(ngModel)]="vpnumber"
+      />
+    </article>
+
+    <button id="signin" class="btn-sign" (click)="saveToLocalStorage()">
+      Ingresar
+    </button>
+
+    <span
+      class="span-form"
+      (click)="
+        _notifications.openToast(
+          'Comuniquese con el departamento de Open Systems'
+        )
+      "
+      >Quiero comunicarme con el soporte de esta página,
+      <a>¿Como lo hago?</a></span
+    >
+  </div>
+</section>

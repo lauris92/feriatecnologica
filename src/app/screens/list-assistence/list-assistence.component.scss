@@ -1,0 +1,90 @@
+@use "styles/utils" as theme;
+
+.header-sign {
+  position: relative;
+  border-color: transparent transparent theme.$BBVA-Core-Light-Blue;
+  border-width: 2px 2px 2px;
+  border-style: solid solid solid;
+
+  p {
+    color: theme.$BBVA-Core-Light-Blue;
+    font-family: theme.$benton-book;
+    font-size: theme.$typographyTypeLarge;
+    text-align: center;
+  }
+}
+
+.lista-empleados {
+  margin: 1.5rem 0rem;
+
+  .assistence {
+    font-family: theme.$benton-medium;
+    text-align: center;
+  }
+
+  .covered-text {
+    font-family: theme.$benton-medium;
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  .lottery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+
+    .box-win {
+      background-color: black;
+      border-radius: 3px;
+      width: 3rem;
+      height: 4rem;
+    }
+  }
+
+  .list {
+    font-family: theme.$benton-book;
+    font-size: theme.$typographyTypeMedium;
+    margin-bottom: 2rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 1rem 2rem;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.075);
+
+      img {
+        width: 10%;
+      }
+    }
+  }
+}
+
+.winner {
+  display: block;
+  margin: 0 auto;
+  font-family: theme.$benton-medium;
+  font-size: theme.$typographyType3XLarge;
+  text-align: center;
+}
+
+.spinner-loading {
+  display: block;
+  margin: 2rem auto;
+}
+
+canvas {
+  height: 100vh;
+  pointer-events: none;
+  position: fixed;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}

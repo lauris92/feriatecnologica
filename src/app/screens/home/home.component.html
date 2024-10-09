@@ -1,0 +1,33 @@
+<app-header class="animate__animated" [ngClass]="{'animate__fadeIn': !transition, 'animate__fadeOut': transition}"></app-header>
+<section class="home animate__animated" [ngClass]="{'animate__fadeIn': !transition, 'animate__fadeOut': transition}">
+    <article class="banner">
+        <img src="../../../assets/img/banner1.png" alt="">
+        <p class="text-banner">
+            Tech Connect 
+            <span>Edición 2024</span>
+        </p>
+    </article>
+
+    <button class="btn-access" (click)="goToLink('/signIn')">
+        Acceder
+    </button>
+
+    <article class="info-home">
+        <div class="info">
+            <img src="../../../assets/microilustrations/Rocket.png" alt="">
+
+            <h4>¡Bienvenidos a la 
+                <br>
+                Feria Tecnológica 2024!</h4>
+            <p>
+                Sumérgete en un mundo de innovación, creatividad y avances tecnológicos en la feria más esperada del año. Nuestra plataforma digital te ofrece la oportunidad de confirmar tu asistencia en este evento para poder concursar en el sorteo final por fabulosos premios.
+                <br><br>
+                Explora, aprende y colabora en un entorno interactivo y dinámico.
+                <br><br>
+
+                <b>¡La innovación comienza aquí!</b>
+            </p>
+        </div>
+    </article>
+</section>
+

@@ -1,0 +1,90 @@
+@use "styles/utils" as theme;
+
+.header-sign{
+    position: relative;
+    border-color: transparent transparent theme.$BBVA-Core-Light-Blue;
+    border-width: 2px 2px 2px;
+    border-style: solid solid solid;
+
+    p{
+        color: theme.$BBVA-Core-Light-Blue;
+        font-family: theme.$benton-book;
+        font-size: theme.$typographyTypeLarge;
+        text-align: center;
+    }
+
+    img{
+        position: absolute;
+        top: .95rem;
+        right: .5rem;
+        width: 7%;
+    }
+}
+
+.form-empleados{
+    position: relative;
+    margin: 2rem 1rem;
+
+    .label{
+        margin: 1rem .7rem 2rem;
+        font-family: theme.$benton-book;
+        font-size: theme.$typographyTypeSmall;
+    }
+
+    .inputs{
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        margin: 1rem .7rem 2rem;
+
+        .box select {
+            background: rgb(255,255,255);
+            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(212,237,252,1) 100%);
+            border-radius: 2px;
+            color: theme.$BBVA-500;
+            padding: 5px;
+            width: 5rem;
+            border: 1px solid theme.$BBVA-White-Light-Blue;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+            -webkit-appearance: button;
+            appearance: button;
+            outline: none;
+        }
+        
+        .box:hover::before {
+            color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        input{
+            /* background: rgb(255,255,255);
+            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(212,237,252,1) 100%); */
+            background-color: transparent;
+            border-radius: 2px;
+            color: theme.$BBVA-500;
+            padding: 5px 15px;
+            width: 100%;
+            border: 1px solid theme.$BBVA-White-Light-Blue;
+            font-size: 1.3rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            -webkit-appearance: button;
+            appearance: button;
+            outline: none;
+        }
+    }
+  
+    .span-form{
+        display: block;
+        width: 20rem;
+        margin: 1rem auto;
+        color: theme.$BBVA-Core-Light-Blue;
+        font-family: theme.$benton-book;
+        font-size: .8rem;
+        text-align: center;
+
+        a{
+            color: theme.$BBVA-Core-Dark-Blue;
+        }
+    }
+}

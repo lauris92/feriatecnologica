@@ -1,0 +1,68 @@
+@use "styles/utils" as theme;
+
+.wallpaper{
+    img{
+        width: 100%;
+        height: 20rem;
+    }
+}
+
+.home{
+    overflow: hidden;
+
+    .banner{
+        position: relative;
+        margin-top: .5rem;
+
+        img{
+            width: 125%;
+            z-index: -1;
+        }
+    
+        .text-banner{
+            position: absolute;
+            top: 1.5rem;
+            left: 2rem;
+            font-family: theme.$benton-book;
+            color: theme.$BBVA-White-Light-Blue;
+            font-size: theme.$typographyType4XLarge;
+            width: 15rem;
+            
+            span{
+                font-size: theme.$typographyTypeSmall;
+            }
+        }
+    }
+
+    .info-home{
+        position: relative;
+        margin: 3rem 1rem 0;
+
+        .info{
+            display: block;
+            font-family: theme.$benton-book;
+
+            img{
+                display: block;
+                width: 35%;
+                margin: 0 auto;
+            }
+
+            h4{
+                margin: 0 0 1rem;
+                text-align: center;
+                font-size: theme.$typographyType2XLarge;
+            }
+
+            p{
+                margin: 0;
+                font-size: theme.$typographyTypeMedium;
+                text-align: center;
+
+                b{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
