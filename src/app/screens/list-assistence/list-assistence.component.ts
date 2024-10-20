@@ -31,19 +31,21 @@ class Confetto {
         Math.floor(this.parent.randomRange(0, this.parent.colors.length))
       ];
     this.dimensions = {
-      x: this.parent.randomRange(5, 9),
-      y: this.parent.randomRange(8, 15),
+      x: this.parent.randomRange(25, 30),
+      y: this.parent.randomRange(31, 36),
     };
     this.position = {
       x: this.parent.randomRange(
-        this.parent.canvas.width / 2 - this.parent.button.offsetWidth / 4,
-        this.parent.canvas.width / 2 + this.parent.button.offsetWidth / 4
+        this.parent.canvas.width / 2 - this.parent.button.offsetWidth / 6,
+        this.parent.canvas.width / 2 + this.parent.button.offsetWidth / 6
       ),
       y: this.parent.randomRange(
-        this.parent.canvas.height / 2 + this.parent.button.offsetHeight / 2 + 8,
+        this.parent.canvas.height / 2 +
+          this.parent.button.offsetHeight / 2 +
+          10,
         this.parent.canvas.height / 2 +
           1.5 * this.parent.button.offsetHeight -
-          8
+          10
       ),
     };
     this.rotation = this.parent.randomRange(0, 2 * Math.PI);

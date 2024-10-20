@@ -3,7 +3,7 @@
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -22,15 +22,17 @@ $feria-tech-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$feria-tech-theme: mat.define-light-theme((
-  color: (
-    primary: $feria-tech-primary,
-    accent: $feria-tech-accent,
-    warn: $feria-tech-warn,
-  ),
-  typography: mat.define-typography-config(),
-  density: 0
-));
+$feria-tech-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $feria-tech-primary,
+      accent: $feria-tech-accent,
+      warn: $feria-tech-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -38,46 +40,65 @@ $feria-tech-theme: mat.define-light-theme((
 @include mat.all-component-themes($feria-tech-theme);
 
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
-body{
-    padding: 0;
-    margin: 0;
+html,
+body {
+  height: 100%;
+}
+body {
+  padding: 0;
+  margin: 0;
 }
 
-.btn-access{
+.btn-access {
+  display: block;
+  width: 95%;
+  margin: 0.7rem auto;
+  padding: 0.7rem;
+  font-family: theme.$benton-book;
+  font-size: theme.$typographyTypeSmall;
+  background-color: transparent;
+  border: 1px solid theme.$BBVA-Core-Light-Blue;
+  color: theme.$BBVA-Core-Light-Blue;
+  border-radius: 3px;
+  transition: all 0.15s ease-in;
+}
+
+.btn-access:active {
+  background-color: theme.$BBVA-Core-Light-Blue;
+  color: theme.$BBVA-White-Light-Blue;
+}
+
+.btn-sign {
+  display: block;
+  width: 95%;
+  margin: 0.7rem auto;
+  padding: 0.7rem;
+  font-family: theme.$benton-book;
+  font-size: theme.$typographyTypeSmall;
+  background-color: theme.$BBVA-Core-Light-Blue;
+  border: 1px solid theme.$BBVA-Core-Light-Blue;
+  color: white;
+  border-radius: 3px;
+  transition: all 0.15s ease-in;
+}
+
+.btn-sign:active {
+  background-color: transparent;
+  color: theme.$BBVA-White-Light-Blue;
+}
+
+@media (min-width: 1025px) {
+  .html,
+  body {
     display: block;
-    width: 95%;
-    margin: .7rem auto;
-    padding: .7rem;
-    font-family: theme.$benton-book;
-    font-size: theme.$typographyTypeSmall;
-    background-color: transparent;
-    border: 1px solid theme.$BBVA-Core-Light-Blue;
-    color: theme.$BBVA-Core-Light-Blue;
-    border-radius: 3px;
-    transition: all .15s ease-in;
-}
+    margin: 0 auto;
+  }
 
-.btn-access:active{
-    background-color: theme.$BBVA-Core-Light-Blue;
-    color: theme.$BBVA-White-Light-Blue;
-}
-
-.btn-sign{
-    display: block;
-    width: 95%;
-    margin: .7rem auto;
-    padding: .7rem;
-    font-family: theme.$benton-book;
-    font-size: theme.$typographyTypeSmall;
-    background-color: theme.$BBVA-Core-Light-Blue;
-    border: 1px solid theme.$BBVA-Core-Light-Blue;
-    color: white;
-    border-radius: 3px;
-    transition: all .15s ease-in;
-}
-
-.btn-sign:active{
-    background-color: transparent;
-    color: theme.$BBVA-White-Light-Blue;
+  .list {
+    margin: 1rem 1.2rem;
+    display: grid;
+    grid-template-columns: 32.5% 32.5% 32.5%;
+    gap: 16px;
+    grid-template-areas: ". . .";
+  }
 }

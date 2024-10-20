@@ -6,24 +6,11 @@
 </article>
 
 <section class="lista-empleados">
-  <article class="list">
-    @for (item of employes; track $index) {
-    <li>
-      <img src="../../../assets/icons/activities/point/point.png" alt="point" />
-      {{ item.codigoEmpleado }}
-    </li>
-    }
-  </article>
-
-  <canvas id="canvas"></canvas>
-
   <p class="assistence">
     {{ employes?.length }} Empleados confirmaron su asistencia
   </p>
 
-  <div class="covered-text" id="button">
-    {{ covered }}
-  </div>
+  <canvas id="canvas"></canvas>
 
   <button
     class="btn-access animate__animated animate__fadeIn"
@@ -31,4 +18,17 @@
   >
     Empezar Sorteo
   </button>
+
+  <div class="covered-text" id="button">
+    {{ covered }}
+  </div>
+
+  <article class="list">
+    @for (item of employes; track $index) {
+    <li>
+      <img src="../../../assets/icons/assistence.png" alt="point" />
+      {{ item.codigoEmpleado }}
+    </li>
+    }
+  </article>
 </section>
