@@ -3,9 +3,11 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   HostListener,
   OnDestroy,
+  inject,
   OnInit,
-  Inject,
+  signal,
   PLATFORM_ID,
+  Inject,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
@@ -13,6 +15,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { firebaseService } from '../../services/firebase.service';
 import { LocalNotificationsService } from '../../services/localnotifications.service';
+import { ListWinnersComponent } from '../../components/list-winners/list-winners.component';
+import { MatDialog } from '@angular/material/dialog';
 
 // Confetto class
 class Confetto {
@@ -116,10 +120,13 @@ class Sequin {
   styleUrl: './list-assistence.component.scss',
 })
 export class ListAssistenceComponent implements OnDestroy, OnInit {
+  readonly dialog = inject(MatDialog);
+  readonly readqrstring = signal('');
   public transition = false;
   public loading = false;
   public employes: any;
   public codesEmployes: string[] = [];
+  public listWinners: Array<String> = [];
 
   // LOTTERY VARIABLE
 
@@ -128,6 +135,7 @@ export class ListAssistenceComponent implements OnDestroy, OnInit {
   timer: any;
   replacements: string = '0123456789XVEP';
   replacementsLen: number = this.replacements.length;
+  public lottery: boolean = true;
 
   // CONFETTI VARIABLE
 
@@ -167,6 +175,18 @@ export class ListAssistenceComponent implements OnDestroy, OnInit {
     this.getEmpleados();
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ListWinnersComponent, {
+      data: { name: 'bryan' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log('Lista de ganadores:', result);
+      }
+    });
+  }
+
   getEmpleados() {
     this.firebaseService.getEmployes().subscribe(
       (employes) => {
@@ -189,11 +209,28 @@ export class ListAssistenceComponent implements OnDestroy, OnInit {
   }
 
   start() {
+    const availableCodes = this.codesEmployes.filter(
+      (code) => !this.listWinners.includes(code.toUpperCase())
+    );
+
+    console.log(availableCodes);
+
+    if (this.listWinners.length === 20) {
+      console.log('Los 20 empleados ya han sido seleccionados como ganadores.');
+      this.lottery = false;
+      return; // No continuar si todos los empleados ya han sido seleccionados
+    }
+
+    // Seleccionar un ganador de los disponibles
     this.selected =
-      this.codesEmployes[
-        Math.floor(Math.random() * this.codesEmployes.length)
+      availableCodes[
+        Math.floor(Math.random() * availableCodes.length)
       ].toUpperCase();
+
+    // Cubrir el código del empleado seleccionado
     this.covered = this.selected.replace(/[^\s]/g, '_');
+
+    // Iniciar el temporizador
     this.timer = setInterval(() => this.decode(), 50);
   }
 
@@ -220,7 +257,10 @@ export class ListAssistenceComponent implements OnDestroy, OnInit {
     this.resizeCanvas();
     this.initBurst();
     this.render();
-    this._notifications.openToast('Ganador Encontrado');
+    this.listWinners.push(this.covered);
+    localStorage.setItem('winners', JSON.stringify(this.listWinners));
+
+    //this._notifications.openToast('Ganador Encontrado');
   }
 
   ngOnInit(): void {
@@ -235,6 +275,7 @@ export class ListAssistenceComponent implements OnDestroy, OnInit {
       this.render(); */
       window.addEventListener('resize', this.resizeCanvas.bind(this));
     }
+    //localStorage.removeItem('winners');
   }
 
   randomRange(min: number, max: number): number {

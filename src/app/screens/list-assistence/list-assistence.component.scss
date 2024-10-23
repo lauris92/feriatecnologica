@@ -24,9 +24,25 @@
 
   .covered-text {
     font-family: theme.$benton-medium;
-    font-size: 2rem;
+    font-size: 4rem;
     text-align: center;
     letter-spacing: 2px;
+  }
+
+  .list-text {
+    cursor: pointer;
+    margin: 2rem auto;
+    text-align: center;
+    font-size: 1rem;
+    font-family: theme.$benton-book;
+    color: theme.$BBVA-Core-Light-Blue;
+    text-decoration: underline;
+    transition: all 0.6s ease;
+  }
+
+  .list-text:hover {
+    color: theme.$BBVA-Navy;
+    font-size: 1.1rem;
   }
 
   .lottery {

@@ -1,0 +1,41 @@
+@use "styles/utils" as theme;
+h1 {
+  font-family: theme.$benton-book;
+  font-size: 2rem;
+  color: #000;
+  text-align: center;
+}
+.list {
+  font-family: theme.$benton-book;
+  font-size: theme.$typographyTypeMedium;
+  margin: 2rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 1rem 2rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.075);
+
+    img {
+      width: 10%;
+    }
+  }
+}
+
+.span-text {
+  cursor: pointer;
+  margin: 1rem;
+  font-size: 0.85rem;
+  font-family: theme.$benton-book;
+  color: theme.$BBVA-Core-Light-Blue;
+  text-align: right;
+  transition: all 0.2s ease;
+}
+
+.span-text:hover {
+  font-size: 0.9rem;
+  color: theme.$BBVA-Navy;
+}

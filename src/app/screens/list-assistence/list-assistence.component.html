@@ -15,12 +15,24 @@
   <button
     class="btn-access animate__animated animate__fadeIn"
     (click)="start()"
+    [disabled]="!lottery"
   >
     Empezar Sorteo
   </button>
 
-  <div class="covered-text" id="button">
+  <div
+    class="covered-text animate__animated animate__pulse animate__infinite"
+    id="button"
+  >
     {{ covered }}
+  </div>
+
+  <div
+    class="list-text animate__animated animate__fadeIn"
+    *ngIf="listWinners.length != 0"
+    (click)="openDialog()"
+  >
+    Ver lista de Ganadores
   </div>
 
   <article class="list">
