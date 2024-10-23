@@ -28,7 +28,7 @@ export class OwnerService {
       descripcion:
         '(Tata Consultancy Services). Es una empresa india multinacional de tecnología de la información y consultoría, perteneciente al conglomerado Tata Group, que ofrece servicios en áreas como desarrollo de software, consultoría tecnológica, y soluciones empresariales.',
       urlImg: '../../../assets/img/Logos/TCS.png',
-      codeQR: 'tcs',
+      codeQR: 'TCS',
     },
     {
       id: 4,
