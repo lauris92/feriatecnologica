@@ -6,9 +6,9 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { OwnerService } from '../../services/owners.service';
 
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import Toastify from 'toastify-js';
-import "toastify-js/src/toastify.css";
+import 'toastify-js/src/toastify.css';
 import { ModalQrComponent } from '../../components/modal-qr/modal-qr.component';
 
 @Component({
@@ -17,7 +17,7 @@ import { ModalQrComponent } from '../../components/modal-qr/modal-qr.component';
   imports: [CommonModule, ZXingScannerModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './read-qr.component.html',
-  styleUrl: './read-qr.component.scss'
+  styleUrl: './read-qr.component.scss',
 })
 export class ReadQRComponent implements OnInit {
   readonly dialog = inject(MatDialog);
@@ -25,12 +25,16 @@ export class ReadQRComponent implements OnInit {
   public transition = false;
   public qrResultString: string = '';
   public markedOwners: string[] = [];
-  public owners : any;
+  public owners: any;
 
-  constructor(private router: Router, private firebaseService: firebaseService, public _ownerService: OwnerService) {}
+  constructor(
+    private router: Router,
+    private firebaseService: firebaseService,
+    public _ownerService: OwnerService
+  ) {}
 
   ngOnInit(): void {
-    this._ownerService.getOwner().subscribe(data => {
+    this._ownerService.getOwner().subscribe((data) => {
       this.owners = data;
     });
   }
@@ -41,12 +45,12 @@ export class ReadQRComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalQrComponent, {
-      data: {name: 'bryan'},
+      data: { name: 'bryan' },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        if (this.owners.some((owner:any) => owner.codeQR === result)) {
+        if (this.owners.some((owner: any) => owner.codeQR === result)) {
           if (!this.markedOwners.includes(result)) {
             this.markedOwners.push(result);
           }
@@ -61,54 +65,55 @@ export class ReadQRComponent implements OnInit {
     return this.markedOwners.includes(ownerName);
   }
 
-  goToLink(route : string){
+  goToLink(route: string) {
     this.transition = !this.transition;
     setTimeout(() => {
       this.router.navigate([route]);
     }, 1200);
   }
 
-  sendAssistence(){
-    if(this.markedOwners.length == 11){
+  sendAssistence() {
+    if (this.markedOwners.length == 10) {
       const CODIGO = localStorage.getItem('codigoempleado');
 
-      if(CODIGO){
+      if (CODIGO) {
         this.firebaseService.sendEmployes(JSON.parse(CODIGO));
         setTimeout(() => {
           Toastify({
-            text: "Su asistencia al evento fue validada con exito",
+            text: 'Su asistencia al evento fue validada con exito',
             duration: 6000,
             newWindow: true,
             close: true,
-            gravity: "top", 
-            position: "center",
+            gravity: 'top',
+            position: 'center',
             stopOnFocus: true,
             style: {
-              background: "linear-gradient(180deg, rgba(212,237,252,1)  0%, rgba(255,255,255,1) 100%)",
-              color: "black",
-              marginTop: "1rem"
+              background:
+                'linear-gradient(180deg, rgba(212,237,252,1)  0%, rgba(255,255,255,1) 100%)',
+              color: 'black',
+              marginTop: '1rem',
             },
           }).showToast();
-  
+
           this.goToLink('/home');
         }, 1000);
       }
-    }else{
+    } else {
       Toastify({
-        text: "Debe registrar su asistencia con todos los proveedores leyendo el QR para validar su asistencia",
+        text: 'Debe registrar su asistencia con todos los proveedores leyendo el QR para validar su asistencia',
         duration: 4000,
         newWindow: true,
         close: true,
-        gravity: "top", 
-        position: "center",
+        gravity: 'top',
+        position: 'center',
         stopOnFocus: true,
         style: {
-          background: "linear-gradient(180deg, rgba(212,237,252,1)  0%, rgba(255,255,255,1) 100%)",
-          color: "black",
-          marginTop: "1rem"
+          background:
+            'linear-gradient(180deg, rgba(212,237,252,1)  0%, rgba(255,255,255,1) 100%)',
+          color: 'black',
+          marginTop: '1rem',
         },
       }).showToast();
     }
-    
   }
 }
