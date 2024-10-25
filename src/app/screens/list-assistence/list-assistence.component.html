@@ -35,10 +35,14 @@
     Ver lista de Ganadores
   </div>
 
-  <article class="list">
+  <article class="list animate__animated animate__fadeIn">
     @for (item of employes; track $index) {
-    <li>
-      <img src="../../../assets/icons/assistence.png" alt="point" />
+    <li class="animate__animated animate__pulse">
+      <!-- <img src="../../../assets/icons/assistence.png" alt="point" /> -->
+      {{ item.codigoEmpleado }}
+    </li>
+    <li class="animate__animated animate__pulse">
+      <!-- <img src="../../../assets/icons/assistence.png" alt="point" /> -->
       {{ item.codigoEmpleado }}
     </li>
     }
